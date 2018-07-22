@@ -1,0 +1,108 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[pdf]{graphviz}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage[usenames]{color}
+
+\begin{document}
+\begin{figure}[H]
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g13}{
+    rankdir=LR;
+    node [shape="circle"];
+    a [label=<1<SUB>1</SUB>3<SUB>2</SUB>>];
+    b [label=<1<SUB>2</SUB>2<SUB>1</SUB>>];
+    c [label=<2<SUB>2</SUB>3<SUB>1</SUB>>];
+    d [label=<6<SUB>1</SUB>>];
+    e [label=<6<SUB>2</SUB>>];
+    f [label=<7<SUB>1</SUB>>];
+    g [label=<7<SUB>2</SUB>8<SUB>1</SUB>>];
+    h [label=<8<SUB>2</SUB>>];
+    i [label=<9<SUB>1</SUB>>];
+    j [label=<9<SUB>2</SUB>10<SUB>1</SUB>>];
+    k [label=<10<SUB>2</SUB>>];
+
+    c->a [dir=forward, label="3"];
+    b->c [dir=forward, label="2"];
+    a->b [dir=forward, label="1"];
+    d->e [dir=forward, label="6"];
+    f->g [dir=forward, label="7"];
+    g->h [dir=forward, label="8"];
+    i->j [dir=forward, label="9"];
+    j->k [dir=forward, label="10"];
+}
+\caption{Граф a}
+\end{minipage}
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g14}{
+    rankdir=LR;
+    node [shape="circle"];
+    a [label=<1<SUB>1</SUB>4<SUB>2</SUB>>];
+    b [label=<1<SUB>2</SUB>2<SUB>1</SUB>>];
+    c [label=<2<SUB>2</SUB>4<SUB>1</SUB>>];
+    d [label=<5<SUB>1</SUB>5<SUB>2</SUB>>];
+    e [label=<7<SUB>1</SUB>>];
+    f [label=<7<SUB>2</SUB>>];
+    g [label=<9<SUB>1</SUB>>];
+    h [label=<9<SUB>2</SUB>>];
+    i [label=<10<SUB>1</SUB>>];
+    j [label=<10<SUB>2</SUB>>];
+
+    c->a [dir=forward, label="4"];
+    b->c [dir=forward, label="2"];
+    a->b [dir=forward, label="1"];
+    d->d [dir=forward, label="5"];
+    e->f [dir=forward, label="7"];
+    g->h [dir=forward, label="9"];
+    i->j [dir=forward, label="10"];
+}
+\caption{Граф a}
+\end{minipage}
+\end{figure}
+\begin{figure}[H]
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g15}{
+    rankdir=LR;
+    node [shape="circle"];
+    a1 [label=<1<SUB>1</SUB>>, color="green"];
+    a2 [label=<1<SUB>2</SUB>>, color="green"];
+    b1 [label=<2<SUB>2</SUB>>, color="green"];
+    b2 [label=<2<SUB>1</SUB>>, color="green"];
+    a3 [label=<3a>, color="red"];
+    b4 [label=<4b>, color="red"];
+    a6 [label=<6a>, color="red"];
+    b5 [label=<5b>, color="red"];
+    a7 [label=<7<SUB>1</SUB>>, color="green"];
+    b7 [label=<7<SUB>2</SUB>>, color="green"];
+    a8 [label=<8a>, color="red"];
+    a9 [label=<9<SUB>1</SUB>>, color="green"];
+    b9 [label=<9<SUB>2</SUB>>, color="green"];
+    a10 [label=<10<SUB>1</SUB>>, color="green"];
+    b10 [label=<10<SUB>2</SUB>>, color="green"];
+    
+    b1->a2 [dir=none, color=green, label="a"];
+    b1->a2 [dir=none, color=green, label="b"];
+    a1->a3 [dir=none, color=red, label="a"];
+    a3->b2 [dir=none, color=red, label="a"];
+    b2->b4 [dir=none, color=red, label="b"];
+    b4->a1 [dir=none, color=red, label="b"];
+    b5->b5 [dir=none, color=red, label="b"];
+    b7->a8 [dir=none, color=red, label="a"];
+    b9->a10 [dir=none, color=green, label="a"];
+}
+\caption{Общий граф a+b}
+\end{minipage}
+\end{figure}
+\textcolor{green}{Обычная вершина}\newline
+\textcolor{red}{Особая вершина}\newline
+\textcolor{green}{Обычное ребро}\newline
+\textcolor{red}{Особое ребро}\newline
+Блок - максимальные по включению связанные участки вершин, принадлежащие одной структуре.\newline
+Петля - 5b (т.е. цикл, который является блоком)\newline
+Висячее ребро - ребро, инцидентное особой вершине степени 1\newline
+Невисячие особые ребра присутствуют в нем парами — ребрами, инцидентными одной особой вершине; такую пару удобно считать за одно двойное 
+ребро.\newline
+
+\end{document}

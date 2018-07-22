@@ -1,0 +1,152 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[russian]{babel}
+\usepackage[pdf]{graphviz}
+\usepackage{float}
+\usepackage{amsmath}
+
+\begin{document}
+Пусть даны два графа $a, b$; $deg(a), deg(b)\le 2$. Каждому ребру присвоенно имя. Даны следующие операции:\newline
+a)Двойная переклейка\newline
+\begin{figure}[H]
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g1}{
+    rankdir=LR;
+    node [shape="point"];
+    d->e [dir=none, color=red, label="i'"];
+    e->f [dir=none, color=red, label="j'"];
+    a->b [dir=none, color=blue, label="i"];
+    b->c [dir=none, color=blue, label="j"];
+}
+\caption{До cклейки}
+\end{minipage}
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g2}{
+    rankdir=LR;
+    node [shape="point"];
+    d->e [dir=none, color=red, label="i'"];
+    e->f [dir=none, color=blue, label="j"];
+    a->b [dir=none, color=blue, label="i"];
+    b->c [dir=none, color=red, label="j'"];
+}
+\caption{После cклейки}
+\end{minipage}
+\end{figure}
+b)Полуторная переклейка\newline
+\begin{figure}[H]
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g3}{
+    rankdir=LR;
+    node [shape="point"];
+    d->e [dir=none, color=red, label="i'"];
+    a->b [dir=none, color=blue, label="i"];
+    b->c [dir=none, color=blue, label="j"];
+}
+\caption{До cклейки}
+\end{minipage}
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g4}{
+    rankdir=LR;
+    node [shape="point"];
+    d->e [dir=none, color=red, label="i'"];
+    e->f [dir=none, color=blue, label="j"];
+    a->b [dir=none, color=blue, label="i"];
+}
+\caption{После cклейки}
+\end{minipage}
+\end{figure}
+c)Разрез\newline
+\begin{figure}[H]
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g5}{
+    rankdir=LR;
+    node [shape="point"];
+    b->c [dir=none, label="i'"];
+    a->b [dir=none, label="i"];
+}
+\caption{До разреза}
+\end{minipage}
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g6}{
+    rankdir=LR;
+    node [shape="point"];
+    c->d [dir=none, label="i'"];
+    a->b [dir=none, label="i"];
+}
+\caption{После разреза}
+\end{minipage}
+\end{figure}
+d)Склейка\newline
+\begin{figure}[H]
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g7}{
+    rankdir=LR;
+    node [shape="point"];
+    c->d [dir=none, label="i'"];
+    a->b [dir=none, label="i"];
+}
+\caption{До cклейки}
+\end{minipage}
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g8}{
+    rankdir=LR;
+    node [shape="point"];
+    b->c [dir=none, label="i'"];
+    a->b [dir=none, label="i"];
+}
+\caption{После cклейки}
+\end{minipage}
+\end{figure}
+e)Удаление\newline
+\begin{figure}[H]
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g9}{
+    rankdir=LR;
+    node [shape="point"];
+    e->f [dir=none, label="i'"];
+    d->e [dir=none, color=red, label="q"];
+    c->d [dir=none, color=red, label="..."];
+    b->c [dir=none, color=red, label="p"];
+    a->b [dir=none, label="i"];
+}
+\caption{До удаления}
+\end{minipage}
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g10}{
+    rankdir=LR;
+    node [shape="point"];
+    b->c [dir=none, label="i'"];
+    a->b [dir=none, label="i"];
+}
+\caption{После удаления}
+\end{minipage}
+\end{figure}
+f)Вставка\newline
+\begin{figure}[H]
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g11}{
+    rankdir=LR;
+    node [shape="point"];
+    b->c [dir=none, label="i'"];
+    a->b [dir=none, label="i"];
+}
+\caption{До вставки}
+\end{minipage}
+\begin{minipage}[h]{0.49\linewidth}
+\digraph[scale=0.7]{g12}{
+    rankdir=LR;
+    node [shape="point"];
+    e->f [dir=none, label="i'"];
+    d->e [dir=none, color=blue, label="q"];
+    c->d [dir=none, color=blue, label="..."];
+    b->c [dir=none, color=blue, label="p"];
+    a->b [dir=none, label="i"];
+}
+\caption{После вставки}
+\end{minipage}
+\end{figure}
+У каждой операции есть своя цена. Требуется найти такую последовательность операций, преобразующую структуру $a$ в структуру $b$,
+такую, что сумма операций минимальна.\newline
+Общм графом назовём...\newline
+
+\end{document}
